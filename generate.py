@@ -4,6 +4,7 @@ import random
 import argparse
 import os
 import shutil
+from collections import defaultdict
 
 from PIL import Image, ImageDraw, ImageFont
 import imageio
@@ -46,6 +47,7 @@ def make_images(string, out_dir):
     font = ImageFont.truetype('/System/Library/Fonts/Monaco.dfont', 50)
     wh = get_text_size(font, string)
 
+    previous_misses = defaultdict(list)
     min_char = 32
     max_char = 126
     target = string
@@ -60,7 +62,13 @@ def make_images(string, out_dir):
         files.append(image)
         for idx in range(len(current)):
             if current[idx] != target[idx]:
-                current[idx] = chr(random.randint(min_char, max_char))
+                guess = ""
+                while guess in previous_misses[idx]:
+                    guess = chr(random.randint(min_char, max_char))
+
+                current[idx] = guess
+                previous_misses[idx].append(guess)
+
         iteration += 1
     return files
 
