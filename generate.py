@@ -89,7 +89,6 @@ def main(args):
 
 
 if __name__ == "__main__":
-    os.environ['IMAGEIO_FFMPEG_EXE'] = '/Users/aricmaddux/bin/ffmpeg'
     parser = argparse.ArgumentParser(prog='decrypt_gif', usage='%(prog)s text string')
     parser.add_argument("string", help="String to animate")
     parser.add_argument("outfile", help="The file to save the gif to", nargs='?')
