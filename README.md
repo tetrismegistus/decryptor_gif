@@ -8,4 +8,6 @@ a silly animated gif maker
 # purpose
 None, this is a silly tool to make images like this:
 
-The font on line 44 will almost certainly need edited on your system.
+![Example](https://github.com/tetrismegistus/decryptor_gif/blob/master/output.gif)
+
+The font on line 46 will almost certainly need edited on your system.
