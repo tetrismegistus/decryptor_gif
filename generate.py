@@ -66,10 +66,13 @@ def main():
                          nargs='?', default='output.gif')
     parser.add_argument("fontsize", help="The size of the font to use",
                         nargs='?', default=50)
-    parser.add_argument("textcolor", help="The",
+    parser.add_argument("textcolor", help="The color of the font",
                         nargs='?', default="green")
+    parser.add_argument("background", help="The color of the background",
+                        nargs='?', default="black")
     args = parser.parse_args()
-    DecryptorGif(args.string, outputfile=args.outfile, fontsize=args.fontsize)
+    DecryptorGif(args.string, outputfile=args.outfile, fontsize=args.fontsize, background=args.background,
+                 textcolor=args.textcolor)
 
 
 if __name__ == "__main__":
