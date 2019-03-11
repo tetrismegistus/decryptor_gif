@@ -2,12 +2,14 @@ import io
 
 import imageio
 
-from common import runtimedefs as rd
-
 
 class Animation:
-    def __init__(self):
+    def __init__(self, filename, duration=1, endpause=20, reverse=False):
         self._frames = []
+        self.filename = filename
+        self.duration = duration
+        self.endpause = endpause
+        self.reverse = reverse
 
     @property
     def frames(self):
@@ -19,13 +21,13 @@ class Animation:
             img.save(output, format="GIF", quality=30)
             self._frames.append(output.getvalue())
 
-    def save_gif(self, pause=20, reverse=False):
+    def save_gif(self):
         images = [imageio.imread(f) for f in self._frames]
-        if not reverse:
-            images += [images[-1] for _ in range(pause)]
-        if reverse:
+        images += [images[-1] for _ in range(self.endpause)]
+
+        if self.reverse:
             rrw = images.copy()
             rrw.reverse()
             images += rrw
 
-        imageio.mimsave('{}animated.gif'.format(rd.DIRS['output']), images, duration=.00000000001)
+        imageio.mimsave(self.filename, images, duration=self.duration)
