@@ -35,7 +35,7 @@ class DecryptorGif:
     def get_text_size(self, text):
         img = Image.new('RGB', (1, 1), color='black')
         drawing = ImageDraw.Draw(img)
-        size = drawing.textsize(text, font=self.font)
+        size = (650, 50) 
         return size[0] + self.margin, size[1] + self.margin
 
     def make_images(self, message_string):
