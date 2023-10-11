@@ -20,8 +20,6 @@ decryptor_gif
 
 Creates silly movie file decryption animations
 
-![Example](https://github.com/tetrismegistus/decryptor_gif/blob/master/output.gif)
-
 * Free software: GNU General Public License v3
 * Documentation: https://decryptor-gif.readthedocs.io.
 
@@ -29,7 +27,8 @@ Creates silly movie file decryption animations
 Features
 --------
 
-* TODO
+* Creates silly movie file decryption animations
+* CLI driven
 
 Credits
 ---------
